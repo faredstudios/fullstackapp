@@ -20,8 +20,18 @@
 		color: black;
 		font-size: 18px;
 	}
+.titleRow {
+	font-size: 20px;
+	display: flex;
+	padding: 10px 20px;
+	height: 40px;
+	color: white;
+	margin-bottom: 10px;
+	border-top: 3px solid red;
+	padding-left:30px;
+}
 .rowBalance {
-	margin: auto 10px;
+	margin: auto 1vw;
 }
 .rowMiddle {
 	margin:auto 30px auto auto;

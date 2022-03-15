@@ -156,7 +156,7 @@ ul li:hover ul.dropdown{
     padding:10px;
 }
 .modalbg {
-    display: block;
+    display: none;
     position: absolute;
     background-color: rgba(0,0,0,0.5);
     width: 100%;

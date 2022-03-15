@@ -20,7 +20,13 @@ class Marketplace extends Component {
 		return(
 			<div>
 				<div class="leaderboard">
-					<ul class="">
+					<ul>
+						<li class="titleRow">
+							<span class="rowBalance">RANK</span>
+							<span class="rowBalance">PLAYER</span>
+							<span class="rowMiddle">MMR</span>
+							<span class="rowMiddle">WINS</span>
+						</li>
 						<li class="userRow">
 							<span class="rowBalance">1</span>
 							<div class="userImage"></div>
