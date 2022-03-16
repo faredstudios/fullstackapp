@@ -19,41 +19,41 @@ class Marketplace extends Component {
 	render(){
 		return(
 			<div>
-				<div class="leaderboard">
+				<div className="leaderboard">
 					<ul>
-						<li class="titleRow">
-							<span class="rowBalance">RANK</span>
-							<span class="rowBalance">PLAYER</span>
-							<span class="rowMiddle">MMR</span>
-							<span class="rowMiddle">WINS</span>
+						<li className="titleRow">
+							<span className="rowBalance">RANK</span>
+							<span className="rowBalance">PLAYER</span>
+							<span className="rowMiddle">MMR</span>
+							<span className="rowMiddle">WINS</span>
 						</li>
-						<li class="userRow">
-							<span class="rowBalance">1</span>
-							<div class="userImage"></div>
-							<span class="rowBalance">ExamplePlayer1</span>
-							<span class="rowMiddle">1400</span>
-							<span class="rowMiddle">10</span>
+						<li className="userRow">
+							<span className="rowBalance">1</span>
+							<div className="userImage"></div>
+							<span className="rowBalance">ExamplePlayer1</span>
+							<span className="rowMiddle">1400</span>
+							<span className="rowMiddle">10</span>
 						</li>
-						<li class="userRow">
-							<span class="rowBalance">2</span>
-							<div class="userImage"></div>
-							<span class="rowBalance">ExamplePlayer2</span>
-							<span class="rowMiddle">1350</span>
-							<span class="rowMiddle">7</span>
+						<li className="userRow">
+							<span className="rowBalance">2</span>
+							<div className="userImage"></div>
+							<span className="rowBalance">ExamplePlayer2</span>
+							<span className="rowMiddle">1350</span>
+							<span className="rowMiddle">7</span>
 						</li>
-						<li class="userRow">
-							<span class="rowBalance">3</span>
-							<div class="userImage"></div>
-							<span class="rowBalance">ExamplePlayer3</span>
-							<span class="rowMiddle">1300</span>
-							<span class="rowMiddle">6</span>
+						<li className="userRow">
+							<span className="rowBalance">3</span>
+							<div className="userImage"></div>
+							<span className="rowBalance">ExamplePlayer3</span>
+							<span className="rowMiddle">1300</span>
+							<span className="rowMiddle">6</span>
 						</li>
-						<li class="userRow">
-							<span class="rowBalance">4</span>
-							<div class="userImage"></div>
-							<span class="rowBalance">ExamplePlayer4</span>
-							<span class="rowMiddle">1250</span>
-							<span class="rowMiddle">5</span>
+						<li className="userRow">
+							<span className="rowBalance">4</span>
+							<div className="userImage"></div>
+							<span className="rowBalance">ExamplePlayer4</span>
+							<span className="rowMiddle">1250</span>
+							<span className="rowMiddle">5</span>
 						</li>
 					</ul>
 				</div>

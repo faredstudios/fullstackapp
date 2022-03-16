@@ -19,11 +19,11 @@ class Profile extends Component {
 	render(){
 		return(
 			<div>
-				<div class="filterbar">
-					<div class="arrow">></div>
+				<div className="filterbar">
+					<div className="arrow">></div>
 					Filter Marketplace:
-					<input class="searchbar" type="text" placeholder="Search"></input>
-					<div class="sort">
+					<input className="searchbar" type="text" placeholder="Search"></input>
+					<div className="sort">
 						<select name="sortSelect">
 							<option value="lowestprice">Lowest Price</option>
 							<option value="highestprice">Highest Price</option>
@@ -31,15 +31,15 @@ class Profile extends Component {
 							<option value="oldest">Oldest</option>
 						</select>
 					</div>
-					<div class="searchbar">
+					<div className="searchbar">
 					</div>
 
 				</div>
-				<div class="container">
-					<div class="profileBanner">
+				<div className="container">
+					<div className="profileBanner">
 						<div>
 						</div>
-						<div class="storeTextContainer">
+						<div className="storeTextContainer">
 							<h3>ExamplePlayer1<span className="storeItemPrice">1200</span></h3>
 							PlayerBio
 						</div>

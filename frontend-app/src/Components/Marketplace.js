@@ -19,11 +19,11 @@ class Marketplace extends Component {
 	render(){
 		return(
 			<div>
-				<div class="filterbar">
-					<div class="arrow">></div>
+				<div className="filterbar">
+					<div className="arrow">></div>
 					Filter Marketplace:
-					<input class="searchbar" type="text" placeholder="Search"></input>
-					<div class="sort">
+					<input className="searchbar" type="text" placeholder="Search"></input>
+					<div className="sort">
 						<select name="sortSelect">
 							<option value="lowestprice">Lowest Price</option>
 							<option value="highestprice">Highest Price</option>
@@ -31,39 +31,39 @@ class Marketplace extends Component {
 							<option value="oldest">Oldest</option>
 						</select>
 					</div>
-					<div class="searchbar">
+					<div className="searchbar">
 					</div>
 
 				</div>
-				<div class="container">
-					<div class="storeItem">
-						<div class="storeImage">
+				<div className="container">
+					<div className="storeItem">
+						<div className="storeImage">
 						</div>
-						<div class="storeTextContainer">
+						<div className="storeTextContainer">
 							<h3>NFT ITEM 1<span className="storeItemPrice">0.05 SOL</span></h3>
 							Example NFT Game Character that can be bought for auction sold by users.
 						</div>
 					</div>
-					<div class="storeItem">
-						<div class="storeImage">
+					<div className="storeItem">
+						<div className="storeImage">
 						</div>
-						<div class="storeTextContainer">
+						<div className="storeTextContainer">
 							<h3>NFT ITEM 2<span className="storeItemPrice">0.05 SOL</span></h3>
 							Example NFT Game Character that can be bought for auction sold by users.
 						</div>
 					</div>
-					<div class="storeItem">
-						<div class="storeImage">
+					<div className="storeItem">
+						<div className="storeImage">
 						</div>
-						<div class="storeTextContainer">
+						<div className="storeTextContainer">
 							<h3>NFT ITEM 3<span className="storeItemPrice">0.05 SOL</span></h3>
 							Example NFT Game Character that can be bought for auction sold by users.
 						</div>
 					</div>
-					<div class="storeItem">
-						<div class="storeImage">
+					<div className="storeItem">
+						<div className="storeImage">
 						</div>
-						<div class="storeTextContainer">
+						<div className="storeTextContainer">
 							<h3>NFT ITEM 4<span className="storeItemPrice">0.05 SOL</span></h3>
 							Example NFT Game Character that can be bought for auction sold by users.
 						</div>
