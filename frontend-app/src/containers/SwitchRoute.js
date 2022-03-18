@@ -1,25 +1,27 @@
 import React, {Component} from 'react';
 import {Routes, Route, Redirect, useNavigate} from 'react-router-dom';
 import { connect } from "react-redux";
-import Market from '../components/Marketplace';
-import Leaderboards from '../components/Leaderboard';
-import Home from '../components/Homepage';
-import Profiles from '../components/Profile';
+import AuthForm from "../components/AuthForm";
+import Marketplace from '../components/Marketplace';
+import Leaderboard from '../components/Leaderboard';
+import Homepage from '../components/Homepage';
+import Profile from '../components/Profile';
+import { authUser } from "../store/actions/auth";
 
 
-const Homepage = () => (<Home/>);
-const Marketplace = () => (<Market/>);
-const Leaderboard = () => (<Leaderboards/>);
-const Profile = () => (<Profiles/>);
-
-const SwitchRoute = props => (
+const SwitchRoute = props => {
+    const { authUser,walletID } = props;
+    console.log(props.currentUser);
+    return (
     <Routes>
         <Route path="/" render={props => <Homepage {...props} />} />
+        <Route path="/register" element={<AuthForm onAuth={authUser} walletID={walletID}/>}/>
         <Route path="/marketplace" element={<Marketplace/>}/>
         <Route path="/leaderboard" element={<Leaderboard/>}/>
         <Route path="/profile" element={<Profile/>}/>
     </Routes>
-);
+    );
+}
 
 function mapStateToProps(state) {
     return {
@@ -33,4 +35,4 @@ export const withRouter = (Component) => {
 	};
 	return Wrapper;
 };
-export default withRouter(connect(mapStateToProps,null)(SwitchRoute));
+export default withRouter(connect(mapStateToProps,{ authUser })(SwitchRoute));

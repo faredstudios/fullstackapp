@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 
 exports.signin = function(){}
 
-exports.signup = function(req, res, next) {
+exports.signup = async function(req, res, next) {
 	try {
 		let user = await db.User.create(req.body);
 		let { walletID, username, pictureID } = user
@@ -24,7 +24,7 @@ exports.signup = function(req, res, next) {
 		if(err.code === 11000){
 			err.message = "Sorry, that username and/or email is taken"
 		}
-		return.next({
+		return next({
 			status: 400,
 			message: err.message
 		});

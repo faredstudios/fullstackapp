@@ -46,7 +46,7 @@ const App = () => {
 	}
 	const renderNotConnectedContainer = () => (
 		<div>
-			<button class="connectbtn animated" onClick={connectWallet}>CONNECT</button>
+			<button class="connectbtn fullwidth" onClick={connectWallet}>CONNECT</button>
 			<div>Connect to Phantom Wallet to log in your account.</div>
 		</div>
 	 );
@@ -95,13 +95,15 @@ const App = () => {
 		return (
 		<Provider store={store}>
 			<div className="background">
-				<Navbar />
+				<div className="fadetop">
+					<div className = "App">
+						<Navbar/>
+						<SwitchRoute walletID={walletAddress}/>
+					</div>
+				</div>
 				<div className="sideBar">
 					{!walletAddress && renderNotConnectedContainer()}
 					{walletAddress && renderConnectedUser()}
-				</div>
-				<div className="modalbg">
-					<div className="modal"></div>
 				</div>
 			</div>
 		</Provider>
