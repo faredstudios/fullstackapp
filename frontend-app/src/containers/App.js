@@ -1,4 +1,5 @@
 import React, {Component, useEffect, useState} from 'react';
+import {Routes, Route, Redirect, useNavigate} from 'react-router-dom';
 import '../components/styles/App.css';
 import { Provider } from "react-redux";
 import { configureStore } from '../store';
@@ -10,6 +11,7 @@ const isPhantomInstalled = window.solana && window.solana.isPhantom
 const store = configureStore()
 const App = () => {
 	const [walletAddress, setWalletAddress] = useState(null);
+	const navigate = useNavigate()
 	const checkIfWalletIsConnected = async () => {
 		try {
 			const { solana } = window;
@@ -37,6 +39,7 @@ const App = () => {
 			const response = await solana.connect();
 			console.log('Connected with Public Key:', response.publicKey.toString());
 			setWalletAddress(response.publicKey.toString());
+			navigate('/register')
 		}
 	};
 	function logout(){
@@ -56,7 +59,8 @@ const App = () => {
 				<li>
 					<a href="#" className="userName"><div className="userDP"></div> Username01</a>
 					<ul className="dropdown">
-						<li className="settingsli"><a href="#">Change Username</a></li>
+						<li className="settingsli" onClick={connectWallet}><a href="#">Register Account</a></li>
+						<li className="settingsli" onClick={connectWallet}><a href="#">Change Username</a></li>
 						<li className="settingsli"><a href="#">Account Settings</a></li>
 						<li className="settingsli" onClick={logout}><a href="#logout">Logout</a></li>
 					</ul>

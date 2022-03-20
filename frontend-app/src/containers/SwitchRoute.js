@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Routes, Route, Redirect, useNavigate} from 'react-router-dom';
+import {Routes, Route, Redirect, useNavigate, Navigate} from 'react-router-dom';
 import { connect } from "react-redux";
 import AuthForm from "../components/AuthForm";
 import Marketplace from '../components/Marketplace';
@@ -15,7 +15,7 @@ const SwitchRoute = props => {
     return (
     <Routes>
         <Route path="/" render={props => <Homepage {...props} />} />
-        <Route path="/register" element={<AuthForm onAuth={authUser} walletID={walletID}/>}/>
+        <Route path="/register" element={walletID ? <AuthForm onAuth={authUser} walletID={walletID}/> : <Navigate to="/"/>}/>
         <Route path="/marketplace" element={<Marketplace/>}/>
         <Route path="/leaderboard" element={<Leaderboard/>}/>
         <Route path="/profile" element={<Profile/>}/>

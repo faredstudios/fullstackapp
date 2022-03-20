@@ -40,6 +40,7 @@ export default class AuthForm extends Component {
 									onChange={this.handleChange}
 									value={this.state.walletID}
 									type="text"
+									readonly="readonly"
 								/>
 							</div>
 							<div>
