@@ -10,22 +10,25 @@ import { authUser } from "../store/actions/auth";
 
 
 const SwitchRoute = props => {
-    const { authUser,walletID } = props;
-    console.log(props.currentUser);
+    const { authUser, walletID, username, errors } = props;
+	const navigate = useNavigate();
+
+
     return (
     <Routes>
-        <Route path="/" render={props => <Homepage {...props} />} />
-        <Route path="/register" element={walletID ? <AuthForm onAuth={authUser} walletID={walletID}/> : <Navigate to="/"/>}/>
+        <Route path="/" element={<Homepage/>} />
+        <Route path="/register" element={walletID ? <AuthForm navigate={navigate} onAuth={authUser} walletID={walletID} errors={errors}/> : <Navigate to="/"/>}/>
         <Route path="/marketplace" element={<Marketplace/>}/>
         <Route path="/leaderboard" element={<Leaderboard/>}/>
-        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/profile" element={<Profile username={username}/>}/>
     </Routes>
     );
 }
 
 function mapStateToProps(state) {
     return {
-        currentUser: state.currentUser
+        currentUser: state.currentUser,
+        errors: state.errors
 	};
 }
 export const withRouter = (Component) => {

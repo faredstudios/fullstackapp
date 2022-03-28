@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../components/styles/Profile.css';
 
 
 class Profile extends Component {
@@ -20,10 +21,10 @@ class Profile extends Component {
 			<div>
 				<div className="filterbar">
 					<div className="arrow">></div>
-					Filter Marketplace:
-					<input className="searchbar" type="text" placeholder="Search"></input>
+					Search Players:
+					<input className="searchbar" type="text" placeholder="Username"></input>
 					<div className="sort">
-						<select name="sortSelect">
+						<select className="sortSelect">
 							<option value="lowestprice">Lowest Price</option>
 							<option value="highestprice">Highest Price</option>
 							<option value="latest">Latest</option>
@@ -34,14 +35,41 @@ class Profile extends Component {
 					</div>
 
 				</div>
-				<div className="container">
+				<div className="containerProfile">
 					<div className="profileBanner">
-						<div>
+						<div className="profilePicture"></div>
+						<div className="username">{this.props.username ? this.props.username : "PlayerNotFound"}</div>
+						<div>PlayerBio</div>
+					</div>
+					<div className="profileDetails">
+						<div className="matchHistory">
+							<ul>
+								<li className="matchListTitle">
+									<span className="rowBalance">Match History</span>
+								</li>
+								<li className="matchRow">
+									<div className="userImage"></div>
+									<span className="rowBalance">vs ExamplePlayer1</span>
+									<span className="win">VICTORY</span>
+								</li>
+								<li className="matchRow">
+									<div className="userImage"></div>
+									<span className="rowBalance">vs ExamplePlayer2</span>
+									<span className="lose">DEFEAT</span>
+								</li>
+								<li className="matchRow">
+									<div className="userImage"></div>
+									<span className="rowBalance">vs ExamplePlayer3</span>
+									<span className="win">VICTORY</span>
+								</li>
+								<li className="matchRow">
+									<div className="userImage"></div>
+									<span className="rowBalance">vs ExamplePlayer4</span>
+									<span className="lose">DEFEAT</span>
+								</li>
+							</ul>
 						</div>
-						<div className="storeTextContainer">
-							<h3>ExamplePlayer1<span className="storeItemPrice">1200</span></h3>
-							PlayerBio
-						</div>
+						<div className="inventory"></div>
 					</div>
 				</div>
 			</div>

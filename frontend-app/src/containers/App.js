@@ -1,17 +1,23 @@
 import React, {Component, useEffect, useState} from 'react';
-import {Routes, Route, Redirect, useNavigate} from 'react-router-dom';
+import {Routes, Route, useNavigate} from 'react-router-dom';
 import '../components/styles/App.css';
 import { Provider } from "react-redux";
 import { configureStore } from '../store';
 import SwitchRoute from './SwitchRoute';
 import background from '../components/images/daytoner2.jpg';
 import Navbar from './Navbar';
+import { authUser } from "../store/actions/auth";
+import { apiCall } from "../services/api";
 
 const isPhantomInstalled = window.solana && window.solana.isPhantom
 const store = configureStore()
+
 const App = () => {
 	const [walletAddress, setWalletAddress] = useState(null);
+	const [username, setUsername] = useState(null);
+
 	const navigate = useNavigate()
+
 	const checkIfWalletIsConnected = async () => {
 		try {
 			const { solana } = window;
@@ -20,9 +26,16 @@ const App = () => {
 				if (solana.isPhantom) {
 					console.log('Phantom wallet found!');
 					const response = await solana.connect({ onlyIfTrusted: true });
-					console.log('Connected with Public Key:',response.publicKey.toString());
-        
-					setWalletAddress(response.publicKey.toString());
+					const userData = {walletID: response.publicKey.toString()}
+					console.log('Connected with Public Key:',userData.walletID);
+					setWalletAddress(userData.walletID);
+					apiCall("post", `/api/auth/signin`, userData).then(({token, ...user}) => {
+						setUsername(user.username);
+						console.log("User found:",username);
+					}).catch(err => {
+						console.log("User not registered");
+						navigate("/register");
+					});
 					}
 				} else {
 					alert('Solana object not found! Get a Phantom Wallet');
@@ -37,9 +50,16 @@ const App = () => {
 
 		if (solana) {
 			const response = await solana.connect();
-			console.log('Connected with Public Key:', response.publicKey.toString());
-			setWalletAddress(response.publicKey.toString());
-			navigate('/register')
+			const userData = {walletID: response.publicKey.toString()}
+			console.log('Connected with Public Key:', userData.walletID);
+			setWalletAddress(userData.walletID);
+			apiCall("post", `/api/auth/signin`, userData).then(({token, ...user}) => {
+				setUsername(user.username);
+				console.log("User found:",username);
+			}).catch(err => {
+				console.log("User not registered");
+				navigate("/register");
+			});
 		}
 	};
 	function logout(){
@@ -57,9 +77,9 @@ const App = () => {
 	     <div>
 			<ul>
 				<li>
-					<a href="#" className="userName"><div className="userDP"></div> Username01</a>
+					<a href="#" className="userName"><div className="userDP"></div>{username}</a>
 					<ul className="dropdown">
-						<li className="settingsli" onClick={connectWallet}><a href="#">Register Account</a></li>
+						{!username && <li className="settingsli" onClick={connectWallet}><a href="#">Register Account</a></li>}
 						<li className="settingsli" onClick={connectWallet}><a href="#">Change Username</a></li>
 						<li className="settingsli"><a href="#">Account Settings</a></li>
 						<li className="settingsli" onClick={logout}><a href="#logout">Logout</a></li>
@@ -95,19 +115,21 @@ const App = () => {
 		};
 		window.addEventListener('load', onLoad);
 		return () => window.removeEventListener('load', onLoad);
-	}, []);
+		}, []);
+
+
 		return (
 		<Provider store={store}>
 			<div className="background">
 				<div className="fadetop">
 					<div className = "App">
 						<Navbar/>
-						<SwitchRoute walletID={walletAddress}/>
+						<SwitchRoute walletID={walletAddress} username={username}/>
 					</div>
 				</div>
 				<div className="sideBar">
-					{!walletAddress && renderNotConnectedContainer()}
 					{walletAddress && renderConnectedUser()}
+					{!walletAddress && renderNotConnectedContainer()}
 				</div>
 			</div>
 		</Provider>
