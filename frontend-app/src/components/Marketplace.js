@@ -121,14 +121,17 @@ class Marketplace extends Component {
 					{this.state.modalTab==1 &&  <React.Fragment>
 						<div className="nftTrade">
 						<table>
-						<tr>
-							<th>Preview</th>
-							<th>ID</th>
-							<th>No# of 500</th>
-							<th>Price in SOL</th>
-							<th>Price in USD</th>
-							<th></th>
-						</tr>
+						<thead>
+							<tr>
+								<th>Preview</th>
+								<th>ID</th>
+								<th>No# of 500</th>
+								<th>Price in SOL</th>
+								<th>Price in USD</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
 						<tr>
 							<td className="charlie"></td>
 							<td>1001</td>
@@ -233,6 +236,7 @@ class Marketplace extends Component {
 							<td>$5.10</td>
 							<td><button className="connectbtn">Buy Now</button></td>
 						</tr>
+						</tbody>
 						</table>
 						</div>
 					</React.Fragment>}

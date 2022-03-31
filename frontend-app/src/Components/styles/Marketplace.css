@@ -252,7 +252,8 @@ th{
 td{height:100px;}
 tr:nth-child(even) {background-color: rgba(255,250,255,0.2);}
 tr:nth-child(odd) {background-color: rgba(255,250,255,0.3);}
-tr:nth-child(1) {animation: 1s ease-out 0s 1 textSpread;}
+thead tr:nth-child(1) {animation: 1s ease-out 0s 1 textSpread;}
+tbody tr:nth-child(1) {animation: 0.2s ease-out 0s 1 slideLeft;}
 tr:nth-child(2) {animation: 0.3s ease-out 0s 1 slideLeft;}
 tr:nth-child(3) {animation: 0.5s ease-out 0s 1 slideLeft;}
 tr:nth-child(4) {animation: 0.8s ease-out 0s 1 slideLeft;}
@@ -279,7 +280,7 @@ tr:nth-child(7) {animation: 2s ease-out 0s 1 slideLeft;}
     background-image: url("../images/charlieFull.png");
     background-size:100% 60%;
 	background-repeat: no-repeat;
-	height:30vw;
+	height:75%;
 	width: 30vw;
 	margin:50px;
 	outline: 1px solid rgba(255,255,255,0.1);

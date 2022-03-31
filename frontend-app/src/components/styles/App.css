@@ -204,6 +204,7 @@ a {
     }
 
 .userName {
+    animation: 2s ease-in 0s 1 slideInFromRight;
     display: flex;
     align-items: center;
     font-size: 16px;
